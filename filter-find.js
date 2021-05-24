@@ -1,6 +1,5 @@
 // Use the filter or find array methods to solve these problems
 
-/* 
 Input:
 [
     { 
@@ -50,7 +49,7 @@ Output:
         category: 'dairy'
     },
 ]
-*/
+
 
 export function getAllDairy(arr) {
     return [];
