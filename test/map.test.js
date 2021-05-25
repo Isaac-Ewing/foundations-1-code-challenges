@@ -9,7 +9,7 @@ import {
 
 const { test, skip } = QUnit;
 
-const pets = [
+let pets = [
     { name: 'scooter', type: 'puppy' },
     { name: 'sassy', type: 'puppy' },
     { name: 'legzo', type: 'frog' },
@@ -18,7 +18,12 @@ const pets = [
 
 
 test('should return all names', (expect) => {
-    //Arrange
+    pets = [
+        { name: 'scooter', type: 'puppy' },
+        { name: 'sassy', type: 'puppy' },
+        { name: 'legzo', type: 'frog' },
+        { name: 'fluff', type: 'squirrel' },
+    ];
     // Set up your arguments and expectations
     const expected = ['scooter', 'sassy', 'legzo', 'fluff'];
     
@@ -31,8 +36,37 @@ test('should return all names', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
+test('should return a shouting array', (expect) => {
+    pets = [
+        { name: 'scooter', type: 'puppy' },
+        { name: 'sassy', type: 'puppy' },
+        { name: 'legzo', type: 'frog' },
+        { name: 'fluff', type: 'squirrel' },
+    ];
+    // Set up your arguments and expectations
+    const expected = [
+        { name: 'SCOOTER', type: 'puppy' },
+        { name: 'SASSY', type: 'puppy' },
+        { name: 'LEGZO', type: 'frog' },
+        { name: 'FLUFF', type: 'squirrel' },
+    ];
+    
+    //Act 
+    // Call the function you're testing and set the result to a const
+    const actual = makeShoutingArray(pets);
+
+    //Expect
+    // Make assertions about what is expected versus the actual result
+    expect.deepEqual(actual, expected);
+});
+
 test('should return all objects with an added isHungry property equal to true', (expect) => {
-    //Arrange
+    pets = [
+        { name: 'scooter', type: 'puppy' },
+        { name: 'sassy', type: 'puppy' },
+        { name: 'legzo', type: 'frog' },
+        { name: 'fluff', type: 'squirrel' },
+    ];
     // Set up your arguments and expectations
     const expected = [
         { name: 'scooter', isHungry: true, type: 'puppy' },
@@ -50,27 +84,13 @@ test('should return all objects with an added isHungry property equal to true', 
     expect.deepEqual(actual, expected);
 });
 
-test('should return a shouting array', (expect) => {
-    //Arrange
-    // Set up your arguments and expectations
-    const expected = [
-        { name: 'SCOOTER', type: 'puppy' },
-        { name: 'SASSY', type: 'puppy' },
-        { name: 'LEGZO', type: 'frog' },
-        { name: 'FLUFF', type: 'squirrel' },
-    ];    
-    
-    //Act 
-    // Call the function you're testing and set the result to a const
-    const actual = makeShoutingArray(pets);
-
-    //Expect
-    // Make assertions about what is expected versus the actual result
-    expect.deepEqual(actual, expected);
-});
-
-skip('should return a proper array of strings', (expect) => {
-    //Arrange
+test('should return a proper array of strings', (expect) => {
+    pets = [
+        { name: 'scooter', type: 'puppy' },
+        { name: 'sassy', type: 'puppy' },
+        { name: 'legzo', type: 'frog' },
+        { name: 'fluff', type: 'squirrel' },
+    ];
     // Set up your arguments and expectations
     const expected = ['scooterpuppy', 'sassypuppy', 'legzofrog', 'fluffsquirrel'];
     //Act 
@@ -82,7 +102,7 @@ skip('should return a proper array of strings', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a proper array of arrays', (expect) => {
+test('should return a proper array of arrays', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = [

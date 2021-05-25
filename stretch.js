@@ -49,9 +49,47 @@ Output:
 }
 */
 
-export function organizePricesByKey(arr) {
-    return {};
+function check(arr) {
+    let i = 0;
+    while (i < arr.length - 1) {
+        if (arr[i][0] > arr[i + 1][0])
+            return (false);
+        i++;
+    }
+    return (true);
 }
+function sortIds(array) {
+    let i = 0;
+    let temp = 0;
+    while (i < array.length - 1) {
+        if (array[i][0] > array[i + 1][0]) {
+            temp = array[i];
+            array[i] = array[i + 1];
+            array[i + 1] = temp;
+        }
+        i++;
+    }
+    if (!check(array))
+        return (sortIds(array));
+    return (array);
+}
+export function organizePricesByKey(arr) {
+    let idArr = [];
+    const out = {};
+    for (let i of arr) {
+        idArr.push(i.id);
+    }
+    idArr = sortIds(idArr);
+    for (let i of arr) {
+        let j = 0;
+        while (j < idArr.length) {
+            if (idArr[j] === i.id)
+                out[i.id] = i.price;
+            j++;
+        }
+    }
+    return (out);
+}  //This was fun, it was probably inefficient as hell but who cares
 
 /*
 Output: 
@@ -90,7 +128,11 @@ Output:
 */
 
 export function makeAHashMap(arr) {
-    return {};
+    let objects = {};
+    for (let i of arr) {
+        objects[i.id] = {id: i.id, price: i.price, quantity: i.quantity, category: i.category};
+    }
+    return (objects);
 }
 
 
@@ -104,5 +146,32 @@ Output:
 */
 
 export function countByCategory(arr) {
-    return {};
+    let objects = [];
+    let out = {};
+    let i = 1;
+    let z = 0;
+    objects[0] = {
+        id: arr[0].category,
+        count: 1,
+    }
+    while (arr[i]) {
+        for (let j of objects) {
+            if (arr[i].category === j.id) {
+                j.count++;
+                z = 1;
+            }
+        }
+        if (z === 0) {
+            objects[objects.length] = {
+                id: arr[i].category,
+                count: 1,
+            }
+        }
+        i++;
+        z = 0;
+    }
+    for (let k of objects) {
+        out[k.id] = k.count;
+    }
+    return (out);
 }

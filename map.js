@@ -18,8 +18,8 @@ Output:
 ['spot', 'rover', 'jumpy', 'einstein']
 */
 
-export function makeArrayOfNamesWithMap(arr) {
-    const names = arr.map(i => i.name)
+export function makeArrayOfNamesWithMap(ar) {
+    const names = ar.map(i => i.name)
     return (names);
 }
 
@@ -55,8 +55,8 @@ function upper(j) {
     j.name = j.name.toUpperCase();
     return (j);
 }
-export function makeShoutingArray(arr) {
-    const shout = arr.map(i => upper(i))
+export function makeShoutingArray(array) {
+    const shout = array.map(i => upper(i))
     return (shout);
 }
 
@@ -68,7 +68,8 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    const newArr = arr.map(i => `${i.name}${i.type}`);
+    return (newArr);
 }
 
 /*
@@ -94,5 +95,6 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    const newArr = arr.map(i => [['name', `${i.name}`], ['type', `${i.type}`]]);
+    return (newArr);
 }

@@ -9,12 +9,6 @@ const { test, skip } = QUnit;
 
 const groceries = [
     { 
-        id: 'apple',
-        price: 3,
-        quantity: 2,
-        category: 'fruit'
-    },
-    { 
         id: 'banana',
         price: 1,
         quantity: 3,
@@ -25,6 +19,12 @@ const groceries = [
         price: 5,
         quantity: 1,
         category: 'other'
+    },
+    { 
+        id: 'apple',
+        price: 3,
+        quantity: 2,
+        category: 'fruit'
     },
     { 
         id: 'milk',
@@ -40,7 +40,7 @@ const groceries = [
     },
 ];
 
-skip('should organize prices by key', (expect) => {
+test('should organize prices by key', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = {
@@ -60,20 +60,20 @@ skip('should organize prices by key', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should make a hash map', (expect) => {
+test('should make a hash map', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = {
+        milk: { 
+            id: 'milk',
+            price: 2,
+            quantity: 1,
+            category: 'dairy'
+        },
         apple: { 
             id: 'apple',
             price: 3,
             quantity: 2,
-            category: 'fruit'
-        },
-        banana: { 
-            id: 'banana',
-            price: 1,
-            quantity: 3,
             category: 'fruit'
         },
         'dog food': { 
@@ -82,11 +82,11 @@ skip('should make a hash map', (expect) => {
             quantity: 1,
             category: 'other'
         },
-        milk: { 
-            id: 'milk',
-            price: 2,
-            quantity: 1,
-            category: 'dairy'
+        banana: { 
+            id: 'banana',
+            price: 1,
+            quantity: 3,
+            category: 'fruit'
         },
         cheese:    { 
             id: 'cheese',
@@ -105,7 +105,7 @@ skip('should make a hash map', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should make a count object', (expect) => {
+test('should make a count object', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = {
