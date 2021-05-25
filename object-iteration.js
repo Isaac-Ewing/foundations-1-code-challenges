@@ -19,9 +19,12 @@ Output:
 */
 
 export function makeMoreScreamingKeys(someObject) {
-    return {};
+    const newObj = {};
+    Object.keys(someObject).forEach(element => {
+        newObj[element.toUpperCase()] = someObject[element];
+    });
+    return (newObj);
 }
-
 /*
 Output:
 `8truckvroom`
