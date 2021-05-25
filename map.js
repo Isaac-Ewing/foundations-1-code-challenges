@@ -68,7 +68,8 @@ Output:
 */
 
 export function makeStringArray(arr) {
-    return [];
+    const newArr = arr.map(i => `${i.name}${i.type}`);
+    return (newArr);
 }
 
 /*
@@ -94,5 +95,6 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    const newArr = arr.map(i => [['name', `${i.name}`], ['type', `${i.type}`]]);
+    return (newArr);
 }

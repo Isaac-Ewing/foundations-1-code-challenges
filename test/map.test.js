@@ -84,8 +84,13 @@ test('should return all objects with an added isHungry property equal to true', 
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a proper array of strings', (expect) => {
-    //Arrange
+test('should return a proper array of strings', (expect) => {
+    pets = [
+        { name: 'scooter', type: 'puppy' },
+        { name: 'sassy', type: 'puppy' },
+        { name: 'legzo', type: 'frog' },
+        { name: 'fluff', type: 'squirrel' },
+    ];
     // Set up your arguments and expectations
     const expected = ['scooterpuppy', 'sassypuppy', 'legzofrog', 'fluffsquirrel'];
     //Act 
@@ -97,7 +102,7 @@ skip('should return a proper array of strings', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('should return a proper array of arrays', (expect) => {
+test('should return a proper array of arrays', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = [

@@ -96,5 +96,10 @@ Output:
 */
 
 export function listNamesOfAllFruits(arr) {
-    return [];
+    let newArr = [];
+    const list = arr.filter(item => item.category === 'fruit')
+    for (let i of list) {
+        newArr.push(i.id);
+    }
+    return (newArr);
 }

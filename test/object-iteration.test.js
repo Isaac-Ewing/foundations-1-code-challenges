@@ -32,7 +32,7 @@ test('should return an object with screaming keys', (expect) => {
 
 
 
-skip('should make a string from the keys', (expect) => {
+test('should make a string from the keys', (expect) => {
     //Arrange
     // Set up your arguments and expectations    
     //Act 
@@ -45,7 +45,7 @@ skip('should make a string from the keys', (expect) => {
     expect.deepEqual(true, shouldBeTrue);
 });
 
-skip('should return tuples', (expect) => {
+test('should return tuples', (expect) => {
     //Arrange
     // Set up your arguments and expectations
     const expected = [
